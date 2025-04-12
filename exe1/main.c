@@ -30,6 +30,9 @@ void i2c_task(void *p) {
 
     // TODO
     // Configure o acc para operar em 4G
+    // colocando 1 nos bits 4 e 3 do registrador 0x6B
+    buf_write[0] = MPUREG_ACCEL_CONFIG;
+    buf_write[1] = 1 << 4; 
 
     while (1) {
         vTaskDelay(pdMS_TO_TICKS(200));
